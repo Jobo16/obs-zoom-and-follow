@@ -766,8 +766,8 @@ class CursorWindow:
         source = self.get_obs_source(self.source_name)
         scene = obs.obs_scene_from_source(obs.obs_frontend_get_current_scene())
         if scene and source:
-            sceneitems = [obs.obs_scene_sceneitem_from_source(scene,source)]
-            for sceneitem in sceneitems:
+            sceneitem = obs.obs_scene_find_source(scene, self.source_name)
+            if sceneitem:
                 if obs.obs_sceneitem_get_bounds_type(sceneitem) == 0:
                     obs.obs_sceneitem_set_bounds_type(sceneitem, 2)
                     obs.obs_sceneitem_set_bounds_alignment(sceneitem, 0)
@@ -776,8 +776,7 @@ class CursorWindow:
                     bounds = obs.vec2()
                     setattr(bounds, "x", getattr(video, "base_width"))
                     setattr(bounds, "y", getattr(video, "base_height"))
-                    obs.obs_sceneitem_set_bounds(sceneitem,bounds)
-            obs.sceneitem_list_release(sceneitems)
+                    obs.obs_sceneitem_set_bounds(sceneitem, bounds)
             obs.obs_scene_release(scene)
 
     def set_crop(self):
