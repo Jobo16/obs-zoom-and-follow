@@ -1,6 +1,4 @@
-***This script is not being actively maintained. Please contact me if you want to take over maintenance.***
-
-I no longer stream regularly and do not find myself with the free time to do the necessary refactor to address existing issues. Please use [BlankSourceCode's lua script](https://github.com/BlankSourceCode/obs-zoom-to-mouse) to achieve similar functionality. It only supports desktop capture, but works cross-platform, has basic dual machine support, and does not require you to setup Python or any dependencies.
+***修复了AttributeError的错误。目前OBS版本32.0.1 python 版本3.12 运行正常
 
 ---------------
 
